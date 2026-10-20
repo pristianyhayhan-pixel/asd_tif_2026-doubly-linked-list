@@ -48,7 +48,7 @@ jobs:
           path: ./
 
       - name: Test Reporter
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v3
         if: success() || failure()
         with:
           name: Maestro UI Tests (API ${{ matrix.payment }} - ${{ matrix.api }})
@@ -85,7 +85,7 @@ jobs:
           junit-report-merger merged-reports/merged-report.xml 'reports/**/*.xml'
 
       - name: Publish Merged Report
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v3
         if: success() || failure()
         with:
           name: Merged Maestro UI Test Report
